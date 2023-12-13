@@ -14,13 +14,15 @@ display.show(Image.HEART)
 
 # loop forever
 while True:
-    if (button_a.is_pressed() == true):
+    if button_a.is_pressed() == true:
         while True:
             display.clear()
-            distance_to_object = sonar.ping(DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS)
+            distance_to_object = sonar.ping(
+                DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS
+            )
             display.show(distance_to_object)
 
-            if (distance_to_object <= 10):
+            if distance_to_object <= 10:
                 robotbit.stp_car_move(-10, 48)
                 sleep(500)
                 robotbit.stepper_turn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
