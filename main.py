@@ -5,9 +5,8 @@ This module is a Micro:bit MicroPython program that makes wheels move forward un
 """
 
 from microbit import *
-import robotbit
+import neopixel
 import sonar
-
 
 
 # setup
@@ -15,7 +14,7 @@ display.show(Image.HEART)
 
 # loop forever
 while True:
-    if input.button_is_pressed(Button.A) == true):
+    if (button_a.is_pressed() == true):
         while True:
             display.clear()
             distance_to_object = sonar.ping(DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS)
@@ -26,7 +25,7 @@ while True:
                 sleep(500)
                 robotbit.stepper_turn(robotbit.Steppers.M1, robotbit.Turns.T1B4)
                 sleep(500)
-                robotbit.stepper_turn(robotbit.Steppers.2, robotbit.Turns.T1B4)
+                robotbit.stepper_turn(robotbit.Steppers.M2, robotbit.Turns.T1B4)
                 sleep(500)
                 robotbit.stp_car_move(10, 48)
             else:
