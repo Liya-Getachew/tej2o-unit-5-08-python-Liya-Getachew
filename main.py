@@ -16,9 +16,7 @@ while True:
         while True:
             # check distance
             distance_to_object = sonar.ping(
-                DigitalPin.P1,
-                DigitalPin.P2,
-                PingUnit.CENTIMETERS
+                DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS
             )
             basic.show_number(distance_to_object)
 
